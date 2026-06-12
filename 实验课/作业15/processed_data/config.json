@@ -1,0 +1,16 @@
+{
+  "target_frames": 30,
+  "keypoint_dim": 132,
+  "num_keypoints": 33,
+  "num_classes": 6,
+  "class_names": [
+    "backhand_drive",
+    "backhand_net_shot",
+    "forehand_clear",
+    "forehand_drive",
+    "forehand_lift",
+    "forehand_net_shot"
+  ],
+  "train_samples": 664,
+  "test_samples": 166
+}
