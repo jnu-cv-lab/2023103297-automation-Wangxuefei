@@ -1,0 +1,86 @@
+================================================================================
+YCbCr色彩空间下采样与插值重建实验分析报告
+================================================================================
+
+一、实验参数设置
+--------------------------------------------------
+原始图像尺寸: (691, 690, 3)
+下采样因子: [2, 4, 8]
+插值方法: ['nearest', 'bilinear', 'bicubic']
+
+二、PSNR结果分析
+--------------------------------------------------
+
+2x下采样:
+  Nearest: 47.10 dB
+  Bilinear: 50.32 dB
+  Bicubic: 50.18 dB
+
+4x下采样:
+  Nearest: 41.25 dB
+  Bilinear: 43.65 dB
+  Bicubic: 43.39 dB
+
+8x下采样:
+  Nearest: 37.55 dB
+  Bilinear: 39.59 dB
+  Bicubic: 39.23 dB
+
+三、下采样因子对图像质量的影响:
+--------------------------------------------------
+  2x下采样: 平均PSNR = 49.20 dB (质量较好)
+  4x下采样: 平均PSNR = 42.76 dB (质量较好)
+  8x下采样: 平均PSNR = 38.79 dB (质量较好)
+
+四、插值方法对图像质量的影响:
+--------------------------------------------------
+  Nearest: 平均PSNR = 41.97 dB
+  Bilinear: 平均PSNR = 44.52 dB
+  Bicubic: 平均PSNR = 44.26 dB
+
+五、最佳重建效果:
+--------------------------------------------------
+  下采样因子: 2x
+  插值方法: Bilinear
+  PSNR值: 50.32 dB
+
+六、分析结论:
+--------------------------------------------------
+  1. 随着下采样因子增大，信息丢失增多，PSNR值显著下降
+  2. 双三次插值通常获得最好的重建质量，其次是双线性插值，最近邻插值效果最差
+  3. 对于2倍下采样，使用双三次插值可获得较高质量的重建（PSNR > 30dB）
+  4. 对于4倍及以上下采样，即使使用最好的插值方法，重建质量也会明显下降
+  5. 由于人眼对亮度信息更敏感，保持Y通道不变可以保留主要视觉信息
+  6. 色度通道下采样利用了人眼对色度细节不敏感的特性
+  7. 实际应用中，通常采用4:2:0或4:2:2的色度采样格式，在保证视觉质量的同时压缩数据
+
+七、文件输出清单:
+--------------------------------------------------
+  原始图像:
+    - original_rgb.jpg
+    - original_y_channel.jpg
+    - original_cb_channel.jpg
+    - original_cr_channel.jpg
+  下采样通道:
+    - cb_downsampled_2x.jpg
+    - cr_downsampled_2x.jpg
+    - cb_downsampled_4x.jpg
+    - cr_downsampled_4x.jpg
+    - cb_downsampled_8x.jpg
+    - cr_downsampled_8x.jpg
+  重建图像:
+    - reconstructed_2x_nearest.jpg
+    - reconstructed_2x_bilinear.jpg
+    - reconstructed_2x_bicubic.jpg
+    - reconstructed_4x_nearest.jpg
+    - reconstructed_4x_bilinear.jpg
+    - reconstructed_4x_bicubic.jpg
+    - reconstructed_8x_nearest.jpg
+    - reconstructed_8x_bilinear.jpg
+    - reconstructed_8x_bicubic.jpg
+  对比图像:
+    - all_results_comparison.png
+    - psnr_comparison.png
+  结果文件:
+    - psnr_results.txt
+    - analysis_report.txt
