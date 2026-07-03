@@ -1,0 +1,18 @@
+Metrics for Low Contrast
+Method                         | Entropy | AvgGrad
+------------------------------------------------------------
+Original                       | 3.558 | 6.054
+Global Hist Eq (OpenCV)        | 3.466 | 128.186
+Global Hist Eq (My Impl)       | 3.470 | 127.852
+CLAHE (clip=2.0)               | 4.832 | 15.811
+CLAHE (clip=4.0)               | 5.418 | 24.421
+Mean Filter (3x3)              | 3.555 | 4.211
+Mean Filter (5x5)              | 3.541 | 3.064
+Gaussian Filter (5x5, σ=1)     | 3.553 | 4.020
+Gaussian Filter (7x7, σ=2)     | 3.537 | 2.768
+Median Filter (3x3)            | 3.494 | 4.221
+Median Filter (5x5)            | 3.445 | 2.929
+Laplacian Sharpen (α=1)        | 4.841 | 31.931
+Laplacian Sharpen (α=2)        | 5.794 | 66.749
+Filter→Eq (Mean3→Eq)           | 3.461 | 86.215
+Eq→Filter (Eq→Mean3)           | 7.143 | 81.537

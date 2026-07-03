@@ -1,0 +1,18 @@
+Metrics for Salt & Pepper Noise
+Method                         | Entropy | AvgGrad
+------------------------------------------------------------
+Original                       | 6.791 | 111.992
+Global Hist Eq (OpenCV)        | 6.656 | 161.028
+Global Hist Eq (My Impl)       | 6.661 | 157.071
+CLAHE (clip=2.0)               | 7.550 | 143.020
+CLAHE (clip=4.0)               | 7.765 | 166.078
+Mean Filter (3x3)              | 6.969 | 60.458
+Mean Filter (5x5)              | 6.887 | 37.891
+Gaussian Filter (5x5, σ=1)     | 6.944 | 54.832
+Gaussian Filter (7x7, σ=2)     | 6.864 | 31.744
+Median Filter (3x3)            | 6.762 | 37.915
+Median Filter (5x5)            | 6.732 | 29.854
+Laplacian Sharpen (α=1)        | 6.677 | 271.576
+Laplacian Sharpen (α=2)        | 6.291 | 340.378
+Filter→Eq (Mean3→Eq)           | 6.821 | 145.974
+Eq→Filter (Eq→Mean3)           | 7.902 | 94.868

@@ -1,0 +1,18 @@
+Metrics for Gaussian Noise
+Method                         | Entropy | AvgGrad
+------------------------------------------------------------
+Original                       | 7.641 | 159.700
+Global Hist Eq (OpenCV)        | 7.446 | 174.491
+Global Hist Eq (My Impl)       | 7.391 | 161.163
+CLAHE (clip=2.0)               | 7.676 | 261.773
+CLAHE (clip=4.0)               | 7.697 | 282.609
+Mean Filter (3x3)              | 7.508 | 71.480
+Mean Filter (5x5)              | 7.261 | 41.651
+Gaussian Filter (5x5, σ=1)     | 7.432 | 64.447
+Gaussian Filter (7x7, σ=2)     | 7.177 | 33.112
+Median Filter (3x3)            | 7.632 | 86.363
+Median Filter (5x5)            | 7.458 | 51.166
+Laplacian Sharpen (α=1)        | 4.472 | 456.077
+Laplacian Sharpen (α=2)        | 2.905 | 507.970
+Filter→Eq (Mean3→Eq)           | 7.298 | 108.162
+Eq→Filter (Eq→Mean3)           | 7.460 | 71.392
